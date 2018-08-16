@@ -42,13 +42,13 @@ const query = (sql, values) => {
 
 // 创建用户表
 let users = `create table if not exists users (
-  id INT NOT NULL UNSIGNED AUTO_INCREMENT,
-  username VARCHART(100) NOT NULL COMMENT '用户名',
-  password VARCHART(100) NOT NULL COMMENT '密码',
+  id INT NOT NULL AUTO_INCREMENT,
+  username VARCHAR(100) NOT NULL COMMENT '用户名',
+  password VARCHAR(100) NOT NULL COMMENT '密码',
   createTime DATETIME NOT NULL COMMENT '注册时间',
-  avatar VARCHART(100) NOT NULL COMMENT '头像',
-  PRIMARY KEY (id)
-)`;
+  avatar VARCHAR(100) NOT NULL COMMENT '头像',
+  PRIMARY KEY ( id )
+);`
 
 let createTable = (sql) => {
   return query(sql, []);
@@ -57,3 +57,5 @@ let createTable = (sql) => {
 
 // 注册用户
 createTable(users)
+
+module.exports = {query};
