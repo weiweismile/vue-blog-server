@@ -7,4 +7,6 @@ router.get('/api/blog', () => {
 
 router.post('/api/login', login.login);
 
+router.post('/api/register', login.register);
+
 module.exports = router;

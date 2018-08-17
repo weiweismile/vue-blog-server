@@ -21,8 +21,8 @@ exports.login = async (ctx) => {
     // })
 
     // 使用koa-bodyparser插件
-    const { name, password } = ctx.request.body;
-    const params = {name, password};
+    const { username, password } = ctx.request.body;
+    const params = {username, password};
     const result = await user.login(params);
     if (result) {
       ctx.body = 'success';
@@ -31,6 +31,30 @@ exports.login = async (ctx) => {
         code: 500,
         data: {},
         msg: '无该用户',
+      };
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+exports.register = async (ctx) => {
+  try {
+    const { username, password } = ctx.request.body;
+    const params = {username, password};
+    const result = await user.register(params);
+    if (result) {
+      console.log('注册成功');
+      ctx.body = {
+        code: 200,
+        message: '注册成功'
+      };
+    } else {
+      ctx.body = {
+        code: 500,
+        data: {},
+        msg: '注册失败',
       };
     }
   } catch (error) {
