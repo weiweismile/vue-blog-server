@@ -25,7 +25,11 @@ exports.login = async (ctx) => {
     const params = {username, password};
     const result = await user.login(params);
     if (result) {
-      ctx.body = 'success';
+      ctx.body = {
+        code: 200,
+        data: {},
+        msg: 'success',
+      };
     } else {
       ctx.body = {
         code: 500,
@@ -43,6 +47,16 @@ exports.register = async (ctx) => {
   try {
     const { username, password } = ctx.request.body;
     const params = {username, password};
+    const users = await user.login(params);
+    if (users) {
+      // 已存在该用户
+      ctx.body = {
+        code: 20001,
+        data: {},
+        msg: '该用户已注册',
+      };
+      return;
+    }
     const result = await user.register(params);
     if (result) {
       console.log('注册成功');

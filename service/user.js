@@ -2,9 +2,10 @@
 const mysql = require('../model/mysql.js');
 
 exports.login = async (params) => {
-  const sql = 'select username=? and password=? from users';
+  const sql = 'select * from users where username=? and password=?';
   try {
-    const res = await mysql.query(sql, [params.username, params.password]);    
+    const res = await mysql.query(sql, [params.username, params.password]); 
+    console.log(res, 99999);   
     if (res.length) {
       return true;
     }
