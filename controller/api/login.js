@@ -24,10 +24,14 @@ exports.login = async (ctx) => {
     const { username, password } = ctx.request.body;
     const params = {username, password};
     const result = await user.login(params);
-    if (result) {
+    if (result.length) {
+      ctx.session={
+        username: result[0].username,
+        id: result[0].id,
+      };
       ctx.body = {
         code: 200,
-        data: {},
+        data: ctx.session,
         msg: 'success',
       };
     } else {

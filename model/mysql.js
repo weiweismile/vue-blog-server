@@ -33,7 +33,6 @@ const query = (sql, values) => {
         if (error) {
           reject(error);
         } else {
-          console.log(result, 7776555);
           resolve(result);
         }
       });

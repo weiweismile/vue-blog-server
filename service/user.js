@@ -5,11 +5,7 @@ exports.login = async (params) => {
   const sql = 'select * from users where username=? and password=?';
   try {
     const res = await mysql.query(sql, [params.username, params.password]); 
-    console.log(res, 99999);   
-    if (res.length) {
-      return true;
-    }
-    return false;
+    return res;
   } catch (err) {
     console.log(err);
   }
