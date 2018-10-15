@@ -12,6 +12,9 @@ app.keys = ['koa-blog'];
 const CONFIG = {
   key: 'koa:sess',
   maxAge: 86400000,
+  overwrite: true, 
+  httpOnly: true, 
+  signed: true,
 };
 app.use(session(CONFIG, app));
 //router
