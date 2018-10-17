@@ -6,6 +6,7 @@ router.get('/api/blog', ctx => {
 });
 
 router.post('/api/login', login.login);
+router.post('/api/logout', login.logout);
 
 router.post('/api/register', login.register);
 

@@ -43,6 +43,14 @@ exports.login = async (ctx) => {
   }
 }
 
+exports.logout = async (ctx) => {
+  ctx.session = null;
+  ctx.body = {
+    code: 200,
+    data: ctx.session,
+    msg: 'success',
+  };
+}
 
 exports.register = async (ctx) => {
   try {
