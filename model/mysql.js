@@ -50,6 +50,17 @@ let users = `create table if not exists users (
   PRIMARY KEY ( id )
 );`
 
+let article = `create table if not exists article (
+  id INI NOT NULL AUTO_INCREMENT,
+  title TEXT NOT NULL COMMENT '文章标题',
+  content TEXT NOT NULL COMMENT '文章内容',
+  date VARCHAR(100) NOT NULL COMMENT '创建时间',
+  author VARCHAR(100) NOT NULL COMMENT '作者',
+  authorID INT NOT NULL COMMENT '作者id',
+  pv VARCHAR(40) NOT NULL DEFAULT '0' COMMENT '浏览量',
+  PRIMARY KEY ( id )
+);`
+
 let createTable = (sql) => {
   return query(sql, []);
 };
@@ -57,5 +68,6 @@ let createTable = (sql) => {
 
 // 注册用户
 createTable(users)
+createTable(article)
 
 module.exports = {query};
