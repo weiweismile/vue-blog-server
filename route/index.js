@@ -13,5 +13,5 @@ router.post('/api/register', login.register);
 
 router.get('/api/getInfo', login.getInfo);
 router.post('/api/publishText', article.publishArticle);
-
+router.get('/api/getAllText', article.getArticle);
 module.exports = router;

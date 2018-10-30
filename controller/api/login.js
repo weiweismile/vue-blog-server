@@ -26,6 +26,7 @@ exports.login = async (ctx) => {
     const result = await user.login(params);
     if (result.length) {
       ctx.session.username = username;
+      ctx.session.user = result[0] || {};
       ctx.body = {
         code: 200,
         data: ctx.session,

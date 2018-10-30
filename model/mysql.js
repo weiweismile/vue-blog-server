@@ -51,7 +51,7 @@ let users = `create table if not exists users (
 );`
 
 let article = `create table if not exists article (
-  id INI NOT NULL AUTO_INCREMENT,
+  id INT NOT NULL AUTO_INCREMENT,
   title TEXT NOT NULL COMMENT '文章标题',
   content TEXT NOT NULL COMMENT '文章内容',
   date VARCHAR(100) NOT NULL COMMENT '创建时间',
@@ -59,7 +59,7 @@ let article = `create table if not exists article (
   authorID INT NOT NULL COMMENT '作者id',
   pv VARCHAR(40) NOT NULL DEFAULT '0' COMMENT '浏览量',
   PRIMARY KEY ( id )
-);`
+)charset utf8 collate utf8_general_ci;`
 
 let createTable = (sql) => {
   return query(sql, []);
