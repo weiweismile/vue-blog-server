@@ -10,8 +10,8 @@ exports.publishArticle = async (params) => {
     }
   }
 
-  exports.getArticle = async (params) => {
-      const sql = `select * from article where authorID=${params.authorID}`;
+  exports.getArticle = async () => {
+      const sql = 'select * from article';
       try {
           const rsp = await mysql.query(sql);
           return rsp;

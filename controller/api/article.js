@@ -1,7 +1,7 @@
 const article = require('../../service/article');
 exports.publishArticle = async (ctx) => {
     const { title, content, publishDate } = ctx.request.body;
-    const user = ctx.session.user;
+    const user = ctx.session.user || {};
     const params = {
         title,
         content, 
@@ -27,7 +27,7 @@ exports.publishArticle = async (ctx) => {
 }
 
 exports.getArticle = async(ctx) => {
-    const user = ctx.session.user;
+    const user = ctx.session.user || {};
     const params = {
         authorID: user.id,
     };

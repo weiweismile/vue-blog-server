@@ -6,7 +6,7 @@ const config = {
   database: {
     DATABASE: 'fwwvueblog',
     USERNAME: 'root',
-    PASSWORD: 'root',
+    PASSWORD: 'Root123&Fww',
     PORT: '3306',
     HOST: '127.0.0.1',
   },
